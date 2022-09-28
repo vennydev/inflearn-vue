@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <!-- Binding Inline Styles -->
+      <div v-bind:style="{color : activeColor, fontSize: fontSize + 'px'}">
+        Hellow world
+      </div>
+
+      <!-- with components -->
+      <!-- <my-component class="buzz kang"></my-component>
+      <my-component v-bind:class="{active : isActive}"></my-component>
+      <my-component></my-component> -->
+
+      <!-- Object syntax -->
+      <!-- <div class="static" v-bind:class="classObject">음..</div> -->
+
+      <!-- Array syntax -->
+      <!-- <div class="static" v-bind:class="[{ active : isActive}, errorClass]">
+        호옥
+      </div> -->
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.10/dist/vue.js"></script>
+    <script>
+      const vm = new Vue({
+        el: "#app",
+        data: {
+          activeColor: "blue",
+          fontSize: 54,
+          // styleObject: {
+          //   color: "red",
+          //   fontSize: "43px",
+          // },
+        },
+      });
+
+      // with components
+      // const myComponent = Vue.component("my-component", {
+      //   template: '<p class="foo bar">Hi</p>',
+      // });
+      // // with components
+      // const vm = new Vue({
+      //   el: "#app",
+      //   data: {
+      //     isActive: true,
+      //   },
+      //   components: {
+      //     "my-component": myComponent,
+      //   },
+      // });
+
+      // Object syntax
+      //   const vm = new Vue({
+      //     el: "#app",
+      //     data: {
+      //       isActive: true,
+      //       error: null,
+      //     },
+      //     computed: {
+      //       classObject: function () {
+      //         return {
+      //           active: this.isActive && !this.error,
+      //           "text-danger": this.error,
+      //         };
+      //       },
+      //     },
+      //   });
+
+      //  Array syntax
+      // const vm = new Vue({
+      //   el: "#app",
+      //   data: {
+      //     isActive: true,
+      //     activeClass: "active",
+      //     errorClass: "text-danger",
+      //   },
+      // });
+    </script>
+  </body>
+</html>
