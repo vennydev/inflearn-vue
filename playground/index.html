@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      {{ makeFullName }}
+      <h1 v-bind:msg="greeting">{{greeting}}</h1>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.10/dist/vue.js"></script>
+    <script>
+      const vm = new Vue({
+        el: "#app",
+        data: {
+          greeting: "hello",
+          firstName: "Foo",
+          lastName: "Bar",
+        },
+        computed: {
+          makeFullName: {
+            get: function () {
+              return this.firstName + " " + this.lastName;
+            },
+            set: function (newVal) {
+              const name = newVal.split(" ");
+              this.firstName = name[0];
+              this.lastName = name[name.length - 1];
+            },
+          },
+        },
+        // methods: {
+        //   changeFirstName: function () {
+        //     this.firstName = "risa";
+        //   },
+        // },
+        // watch: {
+        //   // firstname이 변히면 callback 실행
+        //   firstName: function (val) {
+        //     console.log("firstname이 변히면 callback 실행");
+        //     this.fullName = val + "" + this.lastName;
+        //   },
+        //   // lastName 변히면 callback 실행
+        //   lastName: function (val) {
+        //     console.log("lastName이 변히면 callback 실행");
+        //     this.fullName = this.firstName + "" + val;
+        //   },
+        // },
+      });
+    </script>
+  </body>
+</html>
